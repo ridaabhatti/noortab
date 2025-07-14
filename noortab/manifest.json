@@ -1,0 +1,9 @@
+﻿{
+	"manifest_version": 3,
+	"name": "NoorTab",
+	"description": "Bring light to your day with Seerah, Sunnah, and quick quizzes — every time you open a new tab.",
+	"version": "1.0",
+	"chrome_url_overrides": {
+		"newtab": "newtab.html"
+	}
+} 
