@@ -1,4 +1,4 @@
-﻿const entry = seerahEntries[0];
+﻿const entry = seerahEntries[Math.floor(Math.random() * seerahEntries.length)];
 
 
 document.getElementById("seerah-title").textContent = entry.title;
