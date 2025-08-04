@@ -17,6 +17,14 @@ body {
     background-position: top left, center;
 }
 
+#search-title {
+    font-size: 32px;
+    color: #ffd700;
+    text-align: center;
+    margin-bottom: 12px;
+    font-family: 'Amiri', serif;
+    letter-spacing: 1px;
+}
 
 #container {
     max-width: 600px;
