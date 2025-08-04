@@ -22,6 +22,51 @@ const seerahEntries = [
             options: ["1", "3", "5", "7"],
             correctIndex: 1
         }
+    },
+      {
+    title: "Bilal ibn Rabah",
+    story: "Bilal (RA), once enslaved, was chosen as the first to call the adhan. His faith never wavered even under torture.",
+    sunnah: "Stay firm in your faith, even during hardship.",
+    link: "https://yaqeeninstitute.org/read/paper/honoring-blackness-part-1-bilal-ibn-rabah",
+    quiz: {
+      question: "Who was the first person to call the adhan (Islamic call to prayer)?",
+      options: ["Umar (RA)", "Ali (RA)", "Bilal (RA)", "Abu Bakr (RA)"],
+      correctIndex: 2
     }
+  },
+  {
+    title: "A Smile is Charity",
+    story: "The Prophet ﷺ said, 'Smiling at your brother is charity.' Even the smallest act done with sincerity can carry great reward in Islam.",
+    sunnah: "Spread goodness with your words and face.",
+    link: "https://sunnah.com/tirmidhi:1956",
+    quiz: {
+      question: "What simple act is considered a form of charity in Islam?",
+      options: ["Praying silently", "Smiling", "Nodding", "Listening to music"],
+      correctIndex: 1
+    }
+  },
+  {
+    title: "Battle of Khandaq (The Trench)",
+    story: "When surrounded by enemies, the Muslims dug a trench for protection — an idea suggested by Salman the Persian (RA). Teamwork and trust in Allah saved them.",
+    sunnah: "Take smart action and rely on Allah for the outcome.",
+    link: "https://quran.com/33/9-27",
+    quiz: {
+      question: "What was unique about the Battle of Khandaq?",
+      options: ["It was fought in the desert", "There was no fighting", "A trench was dug", "It was a night battle"],
+      correctIndex: 2
+    }
+  },
+  {
+    title: "Battle of Badr",
+    story: "At Badr, the Muslims were outnumbered 3 to 1 — yet Allah granted them victory. It was a reminder that success comes from Him, not numbers.",
+    sunnah: "Place full trust in Allah when facing hardship.",
+    link: "https://quran.com/3/123",
+    quiz: {
+      question: "How many Muslims fought at the Battle of Badr?",
+      options: ["313", "1,000", "150", "500"],
+      correctIndex: 0
+    }
+  }
+
 ];
 
