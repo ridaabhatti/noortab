@@ -10,7 +10,7 @@ body {
     align-items: center;
 
     background-image: 
-      url('/images/stars.png'),
+      url('sparkle.png'),
       linear-gradient(to bottom, #0b0c2a, #1a1b3c); /* stars PNG + blue gradient */
     background-repeat: repeat, no-repeat;
     background-size: 150px 150px, cover;
