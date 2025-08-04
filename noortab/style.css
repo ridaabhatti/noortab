@@ -4,11 +4,22 @@ body {
     padding: 2rem;
     background-color: #e9f7ee; /* pastel green */
     color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 
 #container {
     max-width: 600px;
-    margin: auto;
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
 }
 
 button {
@@ -16,6 +27,8 @@ button {
     padding: 10px 15px;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 6px;
+    border: none;
 }
 
 /* Google-Style Search Bar */
@@ -26,12 +39,14 @@ button {
 }
 
 #search-input {
-    width: 100%;
+    width: 80%;
+    padding: 10px;
     max-width: 500px;
     padding: 12px 20px;
     font-size: 16px;
+    margin-bottom: 1rem;
     border: 1px solid #ccc;
-    border-radius: 25px;
+    border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     outline: none;
     transition: box-shadow 0.2s ease;
