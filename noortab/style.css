@@ -22,9 +22,13 @@ body {
     max-width: 600px;
     text-align: center;
     padding: 2rem;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.07);
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    
+
+    /* glowing border*/
+    border: 5px solid #ffff33 !important;
+    box-shadow: 0 0  18px 6px #ffff33 !important;
 
 }
 
