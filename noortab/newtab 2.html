@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NoorTab</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Optional: Add Google Fonts if you want a clean font like Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="container">
+        <h1 id="seerah-title"></h1>
+
+        <!-- 🔍 Google-Style Search Bar -->
+        <form action="https://www.google.com/search" method="GET" target="_blank" id="search-form">
+            <input type="text"
+                   name="q"
+                   id="search-input"
+                   placeholder="Search Google..." />
+        </form>
+
+        <p id="seerah-story"></p>
+        <p><strong>🌿 Mini Sunnah:</strong> <span id="sunnah-action"></span></p>
+        <a id="more-link" href="#" target="_blank">🔗 Explore More</a>
+
+        <hr />
+
+        <button id="quiz-btn">❓ Quiz Me</button>
+        <div id="quiz-section" style="display: none;">
+            <p id="quiz-question"></p>
+            <div id="quiz-options"></div>
+            <p id="quiz-feedback"></p>
+        </div>
+    </div>
+
+    <script src="seerahData.js"></script>
+    <script src="newtab.js"></script>
+</body>
+</html>
