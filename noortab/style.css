@@ -1,16 +1,22 @@
 ﻿
 body {
-    font-family: 'Amiri' , serif;
-    padding: 2rem;
-    background: linear-gradient(to bottom, #0b0c2a, #1a1b3c); /* dark blue night gradient */ 
+    font-family: 'Amiri', serif;
     color: #333;
     margin: 0;
     padding: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
+
+    background-image: 
+      url('/images/stars.png'),
+      linear-gradient(to bottom, #0b0c2a, #1a1b3c); /* stars PNG + blue gradient */
+    background-repeat: repeat, no-repeat;
+    background-size: 150px 150px, cover;
+    background-position: top left, center;
 }
+
 
 #container {
     max-width: 600px;
