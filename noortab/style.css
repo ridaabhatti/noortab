@@ -2,7 +2,7 @@
 body {
     font-family: 'Amiri' , serif;
     padding: 2rem;
-    background-color: #e9f7ee; /* pastel green */
+    background: linear-gradient(to bottom, #0b0c2a, #1a1b3c); /* dark blue night gradient */
     color: #333;
     margin: 0;
     padding: 0;
