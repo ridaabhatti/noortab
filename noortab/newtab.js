@@ -1,7 +1,6 @@
 ﻿const entry = seerahEntries[Math.floor(Math.random() * seerahEntries.length)];
 
 
-document.getElementById("seerah-title").textContent = entry.title;
 document.getElementById("seerah-story").textContent = entry.story;
 document.getElementById("sunnah-action").textContent = entry.sunnah;
 document.getElementById("more-link").href = entry.link;
