@@ -1,84 +1,118 @@
-﻿
+﻿/* ✨ General Body Styling */
 body {
     font-family: 'Amiri', serif;
-    color: #333;
+    color: #fff;
     margin: 0;
     padding: 0;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-
-    background-image: 
-      url('sparkle.png'),
-      linear-gradient(to bottom, #0b0c2a, #1a1b3c); /* stars PNG + blue gradient */
+    justify-content: flex-start;
+    background-image: url('sparkle.png'), linear-gradient(to bottom, #0b0c2a, #1a1b3c);
     background-repeat: repeat, no-repeat;
     background-size: 150px 150px, cover;
     background-position: top left, center;
+    padding-top: 40px; /* adds space at the top */
 }
 
-#search-title {
-    font-size: 12px;
+/* 🌙 NoorTab Title */
+#noortab-title {
+    font-size: 42px;
     color: #ffd700;
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     font-family: 'Amiri', serif;
     letter-spacing: 1px;
 }
 
-#container {
-    max-width: 600px;
+/* 🧭 Header Section (title + search) */
+#header-section {
     text-align: center;
-    padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.07);
-    border-radius: 12px;
-    
-
-    /* glowing border*/
-    border: 5px solid #ffd700 !important;
-    box-shadow: 0 0  18px 6px #ffd700 !important;
-
+    margin-bottom: 20px;
 }
 
-button {
-    margin-top: 10px;
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 6px;
-    border: none;
-}
-
-/* Google-Style Search Bar */
+/* 🔍 Google Search Form */
 #search-form {
-    margin: 20px 0;
+    margin: 12px 0;
     display: flex;
     justify-content: center;
 }
 
 #search-input {
     width: 80%;
-    padding: 10px;
     max-width: 500px;
     padding: 12px 20px;
     font-size: 16px;
-    margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     outline: none;
     transition: box-shadow 0.2s ease;
+    background-color: #fff;
+    color: #000;
 }
 
     #search-input:focus {
-        box-shadow: 0 0 6px rgba(66, 133, 244, 0.4);
-        border-color: #4285f4;
+        box-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
+        border-color: #ffd700;
     }
-/* apply font to quiz section*/
+
+/* 📜 Main Container */
+#container {
+    max-width: 600px;
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    /* glowing border */
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 18px 6px #ffd700;
+}
+
+/* ✍️ Apply Font to Quiz Section */
 #quiz-section,
 #quiz-question,
 #quiz-options button,
-#quiz-feedback,
-#quiz-btn {
+#quiz-feedback {
     font-family: 'Amiri', serif;
+}
+
+/* 🟡 Quiz & Buttons */
+button,
+#quiz-btn {
+    margin-top: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+    background-color: #ffd700;
+    color: #000;
+    transition: background-color 0.2s ease;
+}
+
+    button:hover,
+    #quiz-btn:hover {
+        background-color: #ffcc33;
+    }
+
+/* 🌐 Source Link Styling */
+#more-link {
+    color: #ffd700;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    margin-top: 10px;
+}
+
+/* 🧩 Align Source and Quiz Me Side-by-Side */
+.action-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 0 20px;
 }
