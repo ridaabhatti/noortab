@@ -29,6 +29,10 @@ body {
     margin-bottom: 10px;
     font-family: 'Amiri', serif;
     letter-spacing: 1px;
+
+}
+.moon {
+    text-shadow: 0 0 8px #ffd700, 0 0 12px #ffd700, 0 0 16px #ffd700;
 }
 
 /* Header can expand full width */
