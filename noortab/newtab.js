@@ -1,10 +1,9 @@
-// ============================================================
-//  NoorTab — newtab.js
-// ============================================================
+// NoorTab — newtab.js
 
-// ── Star canvas ──────────────────────────────────────────────
+// ── Star canvas ───────────────────────────────────────────────
 (function initStars() {
     const canvas = document.getElementById('star-canvas');
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
     let stars = [];
 
@@ -13,23 +12,23 @@
         canvas.height = window.innerHeight;
     }
 
-    function createStars(count) {
+    function createStars() {
         stars = [];
+        const count = Math.floor((canvas.width * canvas.height) / 6000);
         for (let i = 0; i < count; i++) {
             stars.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                r: Math.random() * 1.3 + 0.3,
-                alpha: Math.random() * 0.6 + 0.2,
-                speed: Math.random() * 0.004 + 0.002,
+                r: Math.random() * 1.2 + 0.3,
+                alpha: Math.random() * 0.55 + 0.2,
+                speed: Math.random() * 0.003 + 0.002,
                 phase: Math.random() * Math.PI * 2,
-                // a few "sparkle" stars — 4-pointed
-                sparkle: Math.random() < 0.06
+                sparkle: Math.random() < 0.07
             });
         }
     }
 
-    function drawStar4(ctx, x, y, r, alpha) {
+    function drawSparkle(x, y, r, alpha) {
         ctx.save();
         ctx.globalAlpha = alpha;
         ctx.fillStyle = '#ffd700';
@@ -37,7 +36,7 @@
         ctx.beginPath();
         for (let a = 0; a < 8; a++) {
             const angle = (a * Math.PI) / 4;
-            const radius = a % 2 === 0 ? r * 3.5 : r * 1.2;
+            const radius = a % 2 === 0 ? r * 3.2 : r * 1.1;
             if (a === 0) ctx.moveTo(Math.cos(angle) * radius, Math.sin(angle) * radius);
             else ctx.lineTo(Math.cos(angle) * radius, Math.sin(angle) * radius);
         }
@@ -49,26 +48,21 @@
     let t = 0;
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Radial gradient background
         const grad = ctx.createRadialGradient(
-            canvas.width * 0.4, canvas.height * 0.3, 0,
-            canvas.width * 0.5, canvas.height * 0.5, canvas.width * 0.8
+            canvas.width * 0.38, canvas.height * 0.28, 0,
+            canvas.width * 0.5, canvas.height * 0.5, canvas.width * 0.85
         );
-        grad.addColorStop(0, '#111340');
-        grad.addColorStop(0.6, '#0b0c2a');
-        grad.addColorStop(1, '#060714');
+        grad.addColorStop(0, '#121640');
+        grad.addColorStop(0.55, '#0a0b22');
+        grad.addColorStop(1, '#06071a');
         ctx.fillStyle = grad;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        t += 0.012;
-
+        t += 0.01;
         stars.forEach(s => {
             const pulse = Math.sin(t * s.speed * 60 + s.phase);
-            const a = s.alpha * (0.6 + 0.4 * pulse);
-
+            const a = s.alpha * (0.55 + 0.45 * pulse);
             if (s.sparkle) {
-                drawStar4(ctx, s.x, s.y, s.r, a);
+                drawSparkle(s.x, s.y, s.r, a);
             } else {
                 ctx.save();
                 ctx.globalAlpha = a;
@@ -79,70 +73,80 @@
                 ctx.restore();
             }
         });
-
         requestAnimationFrame(draw);
     }
 
     resize();
-    createStars(130);
+    createStars();
     draw();
-    window.addEventListener('resize', () => { resize(); createStars(130); });
+    window.addEventListener('resize', () => { resize(); createStars(); });
 })();
 
-// ── Content ──────────────────────────────────────────────────
-const entry = seerahEntries[Math.floor(Math.random() * seerahEntries.length)];
+// ── Content ───────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function () {
 
-// Seerah title (optional — only if entry has it)
-const titleEl = document.getElementById('seerah-title');
-if (entry.title) {
-    titleEl.textContent = entry.title;
-} else {
-    titleEl.style.display = 'none';
-}
+    // Safety check — if seerahEntries didn't load, show fallback
+    if (typeof seerahEntries === 'undefined' || seerahEntries.length === 0) {
+        document.getElementById('seerah-title').textContent = 'Could not load entry';
+        document.getElementById('seerah-story').textContent = 'Please check that seerahData.js is in the same folder.';
+        return;
+    }
 
-document.getElementById('seerah-story').textContent = entry.story;
-document.getElementById('sunnah-action').textContent = entry.sunnah;
-document.getElementById('more-link').href = entry.link;
+    const entry = seerahEntries[Math.floor(Math.random() * seerahEntries.length)];
 
-// ── Quiz ─────────────────────────────────────────────────────
-const quizBtn     = document.getElementById('quiz-btn');
-const quizSection = document.getElementById('quiz-section');
-const quizQuestion = document.getElementById('quiz-question');
-const quizOptions  = document.getElementById('quiz-options');
-const quizFeedback = document.getElementById('quiz-feedback');
+    // Populate story panel
+    const titleEl = document.getElementById('seerah-title');
+    if (entry.title) {
+        titleEl.textContent = entry.title;
+    } else {
+        titleEl.style.display = 'none';
+    }
 
-let quizBuilt   = false;
-let quizAnswered = false;
+    document.getElementById('seerah-story').textContent = entry.story;
+    document.getElementById('sunnah-action').textContent = entry.sunnah;
+    document.getElementById('more-link').href = entry.link;
 
-quizBtn.addEventListener('click', () => {
-    const isOpen = quizSection.classList.contains('open');
+    // ── Panel swap ────────────────────────────────────────────
+    const storyPanel   = document.getElementById('story-panel');
+    const quizPanel    = document.getElementById('quiz-panel');
+    const quizBtn      = document.getElementById('quiz-btn');
+    const backBtn      = document.getElementById('back-btn');
+    const quizQuestion = document.getElementById('quiz-question');
+    const quizOptions  = document.getElementById('quiz-options');
+    const quizFeedback = document.getElementById('quiz-feedback');
 
-    if (!isOpen) {
-        quizSection.classList.add('open');
-        quizBtn.textContent = 'Hide Quiz';
+    let quizBuilt    = false;
+    let quizAnswered = false;
+
+    quizBtn.addEventListener('click', function () {
+        storyPanel.classList.add('hidden');
+        quizPanel.classList.remove('hidden');
 
         if (!quizBuilt) {
             quizQuestion.textContent = entry.quiz.question;
             quizOptions.innerHTML = '';
             quizFeedback.textContent = '';
 
-            entry.quiz.options.forEach((option, index) => {
+            entry.quiz.options.forEach(function (option, index) {
                 const btn = document.createElement('button');
                 btn.textContent = option;
-                btn.addEventListener('click', () => {
+                btn.addEventListener('click', function () {
                     if (quizAnswered) return;
                     quizAnswered = true;
-
-                    // Disable all options
-                    quizOptions.querySelectorAll('button').forEach(b => b.disabled = true);
-
+                    quizOptions.querySelectorAll('button').forEach(function (b) {
+                        b.disabled = true;
+                    });
                     if (index === entry.quiz.correctIndex) {
                         btn.classList.add('correct');
-                        quizFeedback.textContent = '✓ Correct! MashAllah.';
+                        quizFeedback.textContent = 'MashAllah, correct!';
                     } else {
                         btn.classList.add('wrong');
-                        quizOptions.querySelectorAll('button')[entry.quiz.correctIndex].classList.add('correct');
-                        quizFeedback.textContent = `The answer is: ${entry.quiz.options[entry.quiz.correctIndex]}`;
+                        quizFeedback.textContent = 'Incorrect. Try again.';
+                        quizAnswered = false;
+                        quizOptions.querySelectorAll('button').forEach(function (b) {
+                            b.disabled = false;
+                        });
+                        btn.disabled = true;
                     }
                 });
                 quizOptions.appendChild(btn);
@@ -150,8 +154,11 @@ quizBtn.addEventListener('click', () => {
 
             quizBuilt = true;
         }
-    } else {
-        quizSection.classList.remove('open');
-        quizBtn.textContent = 'Quiz Me';
-    }
+    });
+
+    backBtn.addEventListener('click', function () {
+        quizPanel.classList.add('hidden');
+        storyPanel.classList.remove('hidden');
+    });
+
 });

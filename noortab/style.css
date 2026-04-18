@@ -1,25 +1,20 @@
-/* ============================================================
-   NoorTab — style.css
-   Dark navy + gold theme, Amiri serif, animated star canvas
-   ============================================================ */
- 
-/* ── Reset & Base ──────────────────────────────────────────── */
+/* NoorTab — style.css */
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
 body {
-    font-family: 'DM Sans', sans-serif;
-    background: #080920;
-    color: #e8e6f2;
+    font-family: 'Jost', 'Trebuchet MS', sans-serif;
+    background: #07081c;
+    color: #e4e0f4;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    padding: 0 16px 48px;
+    justify-content: center;
+    padding: 40px 20px 56px;
     overflow-x: hidden;
 }
- 
-/* ── Star Canvas ────────────────────────────────────────────── */
+
 #star-canvas {
     position: fixed;
     inset: 0;
@@ -28,269 +23,291 @@ body {
     z-index: 0;
     pointer-events: none;
 }
- 
-/* ── Header ─────────────────────────────────────────────────── */
-#header-section {
+
+#page {
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 580px;
-    text-align: center;
-    padding-top: 52px;
-    margin-bottom: 28px;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
- 
+
+/* ── Header ── */
+#header-section {
+    width: 100%;
+    text-align: center;
+}
+
 #noortab-title {
-    font-family: 'Amiri', serif;
-    font-size: 44px;
-    font-weight: 700;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 52px;
+    font-weight: 600;
     color: #ffd700;
-    letter-spacing: 0.5px;
+    letter-spacing: 3px;
     line-height: 1;
-    margin-bottom: 6px;
+    margin-bottom: 22px;
     animation: fadeDown 0.7s ease both;
 }
- 
+
 .title-star {
-    font-size: 28px;
-    opacity: 0.85;
+    font-size: 30px;
     vertical-align: middle;
+    opacity: 0.85;
 }
- 
-#noortab-tagline {
-    font-size: 13px;
-    color: rgba(255, 215, 0, 0.45);
-    letter-spacing: 0.4px;
-    margin-bottom: 24px;
-    animation: fadeDown 0.7s 0.1s ease both;
-}
- 
-/* ── Search ─────────────────────────────────────────────────── */
+
+/* ── Search ── */
 #search-form {
     width: 100%;
-    animation: fadeDown 0.7s 0.15s ease both;
+    animation: fadeDown 0.7s 0.1s ease both;
 }
- 
+
 #search-wrapper {
     position: relative;
     display: flex;
     align-items: center;
 }
- 
+
 #search-icon {
     position: absolute;
-    left: 18px;
-    width: 17px;
-    height: 17px;
-    color: rgba(255, 215, 0, 0.5);
+    left: 16px;
+    width: 15px;
+    height: 15px;
+    color: rgba(255, 215, 0, 0.4);
     pointer-events: none;
-    flex-shrink: 0;
 }
- 
+
 #search-input {
     width: 100%;
-    padding: 13px 20px 13px 48px;
-    background: rgba(255, 255, 255, 0.055);
-    border: 1px solid rgba(255, 215, 0, 0.28);
+    padding: 12px 20px 12px 44px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.22);
     border-radius: 50px;
-    font-size: 15px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Jost', 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.3px;
     color: #fff;
     outline: none;
-    transition: border-color 0.2s ease, background 0.2s ease;
+    transition: border-color 0.22s ease, background 0.22s ease;
 }
- 
-#search-input::placeholder { color: rgba(255, 255, 255, 0.3); }
- 
+
+#search-input::placeholder { color: rgba(255, 255, 255, 0.28); }
+
 #search-input:focus {
-    border-color: rgba(255, 215, 0, 0.65);
-    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 215, 0, 0.55);
+    background: rgba(255, 255, 255, 0.075);
 }
- 
-/* ── Main Container Card ────────────────────────────────────── */
+
+/* ── Card ── */
 #container {
-    position: relative;
-    z-index: 1;
     width: 100%;
-    max-width: 580px;
-    background: rgba(255, 255, 255, 0.045);
-    border: 1px solid rgba(255, 215, 0, 0.16);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 215, 0, 0.14);
     border-radius: 18px;
     overflow: hidden;
-    animation: fadeUp 0.75s 0.2s ease both;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    animation: fadeUp 0.75s 0.15s ease both;
 }
- 
-/* ── Card Sections ──────────────────────────────────────────── */
-.card-section {
-    padding: 22px 28px;
-}
- 
+
+.panel { width: 100%; }
+.panel.hidden { display: none; }
+
+.card-section { padding: 22px 28px; }
+
 .card-divider {
     height: 1px;
-    background: rgba(255, 215, 0, 0.1);
+    background: rgba(255, 215, 0, 0.09);
     margin: 0 28px;
 }
- 
-/* ── Section Labels ─────────────────────────────────────────── */
+
+/* ── Labels ── */
 .section-label {
-    display: inline-block;
+    display: block;
+    font-family: 'Jost', 'Trebuchet MS', sans-serif;
     font-size: 10px;
     font-weight: 500;
-    letter-spacing: 1.8px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: rgba(255, 215, 0, 0.55);
-    margin-bottom: 8px;
-    font-family: 'DM Sans', sans-serif;
+    color: rgba(255, 215, 0, 0.45);
+    margin-bottom: 10px;
 }
- 
-/* ── Seerah Title ───────────────────────────────────────────── */
+
+/* ── Seerah title ── */
 #seerah-title {
-    font-family: 'Amiri', serif;
-    font-size: 20px;
-    font-weight: 700;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
     color: #ffd700;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     line-height: 1.35;
 }
- 
-/* ── Seerah Story ───────────────────────────────────────────── */
+
+/* ── Story ── */
 #seerah-story {
-    font-family: 'Amiri', serif;
+    font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 17px;
-    line-height: 1.8;
-    color: rgba(232, 230, 242, 0.9);
-}
- 
-/* ── Sunnah ─────────────────────────────────────────────────── */
-.sunnah-section #sunnah-action {
-    font-family: 'Amiri', serif;
-    font-size: 16px;
-    line-height: 1.7;
-    color: rgba(232, 230, 242, 0.78);
     font-style: italic;
+    font-weight: 400;
+    line-height: 1.75;
+    color: rgba(228, 224, 244, 0.88);
+    margin: 0;
 }
- 
-/* ── Action Row ─────────────────────────────────────────────── */
+
+/* ── Sunnah ── */
+#sunnah-action {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.75;
+    color: rgba(210, 206, 238, 0.7);
+    margin: 0;
+}
+
+/* ── Action row ── */
 #action-row {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     padding: 20px 28px;
-    align-items: center;
 }
- 
-/* ── Buttons ────────────────────────────────────────────────── */
+
+/* ── Buttons ── */
 .btn {
+    flex: 1;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 22px;
+    padding: 11px 20px;
     border-radius: 50px;
-    font-size: 14px;
+    font-family: 'Jost', 'Trebuchet MS', sans-serif;
+    font-size: 13px;
     font-weight: 500;
-    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.8px;
     cursor: pointer;
-    transition: all 0.18s ease;
     text-decoration: none;
+    transition: all 0.22s ease;
     border: none;
 }
- 
-.btn-primary {
-    background: #ffd700;
-    color: #08091a;
-}
-.btn-primary:hover {
-    background: #ffe94d;
-    transform: translateY(-1px);
-}
-.btn-primary:active { transform: scale(0.97); }
- 
-.btn-secondary {
-    background: transparent;
-    border: 1px solid rgba(255, 215, 0, 0.38);
-    color: rgba(255, 215, 0, 0.8);
-}
-.btn-secondary:hover {
-    border-color: rgba(255, 215, 0, 0.7);
+
+.btn-quiz {
+    border-radius: 50px;
+    background: rgba(255, 215, 0, 0.08);
+    border: 1px solid rgba(255, 215, 0, 0.42);
     color: #ffd700;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.12), inset 0 0 10px rgba(255, 215, 0, 0.04);
+}
+
+.btn-quiz:hover {
+    background: rgba(255, 215, 0, 0.14);
+    border-color: rgba(255, 215, 0, 0.88);
+    box-shadow: 0 0 26px rgba(255, 215, 0, 0.38), 0 0 8px rgba(255, 215, 0, 0.2);
     transform: translateY(-1px);
 }
-.btn-secondary:active { transform: scale(0.97); }
- 
-/* ── Quiz Section ───────────────────────────────────────────── */
-#quiz-section {
-    display: none;
-    padding: 0 28px 24px;
-    animation: fadeUp 0.3s ease both;
+
+.btn-quiz:active { transform: scale(0.97); }
+
+.btn-source {
+    border-radius: 50px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    color: rgba(200, 196, 232, 0.65);
 }
- 
-#quiz-section.open {
-    display: block;
+
+.btn-source:hover {
+    border-color: rgba(255, 215, 0, 0.42);
+    color: rgba(255, 215, 0, 0.88);
+    box-shadow: 0 0 16px rgba(255, 215, 0, 0.15);
+    transform: translateY(-1px);
 }
- 
-#quiz-question {
-    font-family: 'Amiri', serif;
-    font-size: 17px;
-    line-height: 1.7;
-    color: #e8e6f2;
+
+.btn-source:active { transform: scale(0.97); }
+
+/* ── Back button ── */
+#back-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
     margin-bottom: 14px;
-    padding-top: 4px;
+    display: flex;
+    align-items: center;
+    opacity: 0.45;
+    transition: opacity 0.18s ease, transform 0.18s ease;
 }
- 
+
+#back-btn:hover { opacity: 1; transform: translateX(-2px); }
+
+#back-btn svg {
+    width: 22px;
+    height: 22px;
+    stroke: #ffd700;
+}
+
+/* ── Quiz ── */
+#quiz-question {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.75;
+    color: rgba(228, 224, 244, 0.92);
+    margin-bottom: 16px;
+}
+
 #quiz-options {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
- 
+
 #quiz-options button {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 10px;
     padding: 11px 16px;
+    font-family: 'Jost', 'Trebuchet MS', sans-serif;
     font-size: 14px;
-    font-family: 'DM Sans', sans-serif;
-    color: #ccc8e0;
+    font-weight: 300;
+    color: rgba(210, 206, 240, 0.8);
     cursor: pointer;
     text-align: left;
     width: 100%;
     transition: all 0.15s ease;
 }
- 
+
 #quiz-options button:hover:not(:disabled) {
-    border-color: rgba(255, 215, 0, 0.4);
+    border-color: rgba(255, 215, 0, 0.35);
     color: #ffd700;
     background: rgba(255, 215, 0, 0.05);
 }
- 
+
 #quiz-options button.correct {
-    border-color: #4caf88;
-    background: rgba(76, 175, 136, 0.12);
-    color: #7ee8be;
+    border-color: rgba(255, 215, 0, 0.9);
+    background: rgba(255, 215, 0, 0.1);
+    color: #ffd700;
+    box-shadow: 0 0 18px rgba(255, 215, 0, 0.35), inset 0 0 12px rgba(255, 215, 0, 0.08);
 }
- 
+
 #quiz-options button.wrong {
-    border-color: rgba(220, 80, 80, 0.5);
-    background: rgba(220, 80, 80, 0.08);
-    color: #f0a0a0;
+    border-color: rgba(180, 176, 220, 0.18);
+    color: rgba(180, 176, 220, 0.35);
+    background: transparent;
 }
- 
+
 #quiz-feedback {
-    margin-top: 12px;
-    font-size: 14px;
-    font-family: 'DM Sans', sans-serif;
-    color: rgba(232, 230, 242, 0.75);
-    min-height: 20px;
+    margin-top: 14px;
+    min-height: 18px;
+    font-family: 'Jost', 'Trebuchet MS', sans-serif;
+    font-size: 13px;
+    color: rgba(220, 216, 244, 0.55);
 }
- 
-/* ── Animations ─────────────────────────────────────────────── */
+
+/* ── Animations ── */
 @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-14px); }
+    from { opacity: 0; transform: translateY(-12px); }
     to   { opacity: 1; transform: translateY(0); }
 }
- 
+
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(14px); }
+    from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: translateY(0); }
 }

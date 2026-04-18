@@ -3,64 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <title>NoorTab</title>
+    <style>
+        /* Inline critical styles so nothing blocks rendering */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap');
+    </style>
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
- 
-    <!-- Animated star field -->
+
     <canvas id="star-canvas"></canvas>
- 
-    <!-- Top Header -->
-    <div id="header-section">
-        <h1 id="noortab-title">NoorTab <span class="title-star">✦</span></h1>
-        <p id="noortab-tagline">Bring light to your day, one tab at a time</p>
- 
-        <form action="https://www.google.com/search" method="GET" target="_blank" id="search-form">
-            <div id="search-wrapper">
-                <svg id="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                </svg>
-                <input type="text" name="q" id="search-input" placeholder="Search Google..." autocomplete="off" />
+
+    <div id="page">
+
+        <div id="header-section">
+            <h1 id="noortab-title">NoorTab <span class="title-star">&#10022;</span></h1>
+
+            <form action="https://www.google.com/search" method="GET" target="_blank" id="search-form">
+                <div id="search-wrapper">
+                    <svg id="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                    <input type="text" name="q" id="search-input" placeholder="" autocomplete="off" />
+                </div>
+            </form>
+        </div>
+
+        <div id="container">
+
+            <!-- Story panel -->
+            <div class="panel" id="story-panel">
+                <div class="card-section">
+                    <span class="section-label">Seerah</span>
+                    <h2 id="seerah-title"></h2>
+                    <p id="seerah-story"></p>
+                </div>
+
+                <div class="card-divider"></div>
+
+                <div class="card-section">
+                    <span class="section-label">Mini Sunnah</span>
+                    <p id="sunnah-action"></p>
+                </div>
+
+                <div class="card-divider"></div>
+
+                <div id="action-row">
+                    <button id="quiz-btn" class="btn btn-quiz">Quiz Me</button>
+                    <a id="more-link" href="#" target="_blank" class="btn btn-source">Source</a>
+                </div>
             </div>
-        </form>
+
+            <!-- Quiz panel -->
+            <div class="panel hidden" id="quiz-panel">
+                <div class="card-section">
+                    <button id="back-btn" title="Back">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"/>
+                        </svg>
+                    </button>
+                    <span class="section-label" style="margin-top:14px;">Quiz</span>
+                    <p id="quiz-question"></p>
+                    <div id="quiz-options"></div>
+                    <p id="quiz-feedback"></p>
+                </div>
+            </div>
+
+        </div>
+
     </div>
- 
-    <!-- Main Card -->
-    <div id="container">
- 
-        <!-- Seerah Story -->
-        <div class="card-section">
-            <span class="section-label">Seerah</span>
-            <h2 id="seerah-title"></h2>
-            <p id="seerah-story"></p>
-        </div>
- 
-        <div class="card-divider"></div>
- 
-        <!-- Mini Sunnah -->
-        <div class="card-section sunnah-section">
-            <span class="section-label">Mini Sunnah</span>
-            <p id="sunnah-action"></p>
-        </div>
- 
-        <div class="card-divider"></div>
- 
-        <!-- Actions Row -->
-        <div id="action-row">
-            <button id="quiz-btn" class="btn btn-primary">Quiz Me</button>
-            <a id="more-link" href="#" target="_blank" class="btn btn-secondary">Source</a>
-        </div>
- 
-        <!-- Quiz Section -->
-        <div id="quiz-section">
-            <p id="quiz-question"></p>
-            <div id="quiz-options"></div>
-            <p id="quiz-feedback"></p>
-        </div>
- 
-    </div>
- 
+
     <script src="seerahData.js"></script>
     <script src="newtab.js"></script>
 </body>
